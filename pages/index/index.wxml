@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<!--搜索框-->
+<view class="search">
+  <input type='text' placeholder="输入名称或唯一编码进行查找"/>
+  <image class="fangdajing" src="/images/fangdajing.png"/>
+</view>
+<!--搜索关键字展位-->
+<view class="keyword">
+  <text class="item">米谷</text>
+  <text class="item">小灰熊</text>
+  <text class="item">迷妹</text>
+  <text class="item">板栗</text>
+  <text class="item">敌哥</text>
+  <text class="item">啦啦</text>
+  <text class="item">兔爷儿</text>
+  <text class="item">呼啦圈</text>
+</view>
+<!--猫咪故事-->
+<view class="story">
+  <view class="title">
+    <text>猫咪故事</text>
+    <view bindtap='turnToCatStoryMore'>查看更多</view>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{catStory.autoplay}}" interval="{{catStory.interval}}" duration="{{catStory.duration}}" circular="{{catStory.circular}}" skip-hidden-item-layout="{{true}}" bindchange='storyDesc'>
+    <block wx:for="{{catStory.list}}" wx:key="">
+      <swiper-item>
+        <image src="{{item.imgUrls}}" class="slide-image" width="355" height="237"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="content">
+    <text class="desc">{{catStoryDesc.desc}}</text>
+    <view class="info">
+      <view class="slave">
+        <image src="{{catStoryDesc.icon}}"/>
+        <text>@{{catStoryDesc.name}}</text>
+      </view>
+      <view class="pageview">
+        <text>{{catStoryDesc.skim}}浏览</text>
+        <text>{{catStoryDesc.reply}}回复</text>
+      </view>
+    </view>
+  </view> 
+</view>
+<!--最新合成-->
+<view class="blend">
+  <view class="title">
+    <text>最新合成</text>
+    <view bindtap='turnToCatFirstMore'>查看更多</view>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="5">
+    <block>
+      <swiper-item wx:for="{{catComplex.list}}" wx:key="">
+        <image src="{{item.img}}" class="complex-image"/>
+       </swiper-item>
+    </block>
+  </swiper>
+<scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+  <view style="background: red; width: 200px; height: 100px; display: inline-block" >0</view>
+  <view style="background: green; width: 200px; height: 100px; display: inline-block">1</view>
+  <view style="background: blue; width: 200px; height: 100px; display: inline-block">2</view>
+  <view style="background: yellow; width: 200px; height: 100px; display: inline-block">3</view>
+</scroll-view>
+</view>
+<!--初代猫咪-->
+<view class="first">
+  <view class="title">
+    <text>初代猫咪</text>
+    <view>数量100</view>
+  </view>
+  <view class="list">
+    <image class="item" wx:for="{{catFirst.list}}" src='{{item.img}}' bindtap='turnToCatFirst'/>
+  </view>
+</view>

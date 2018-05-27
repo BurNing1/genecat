@@ -1,0 +1,18 @@
+/* pages/catFirst/catFirst.wxss */
+/*MTH  */
+.mth{display: flex;flex-direction: row;justify-content: space-between;}
+/*猫咪简介  */
+.intro{display: flex;}
+.intro .cat{width: 480rpx;}
+.intro .cat .title{font-size: 30rpx;display: block;}
+.intro .cat .desc{color:#888;font-size: 28rpx;}
+.intro .host{display: flex;flex-direction: column;}
+.intro .host .logo{width: 118rpx;height: 118rpx;}
+/*猫咪特性  */
+.feature{width: 100%;height: 200rpx;background:#58C9B9;}
+/*基因来源  */
+.source text{display: block;}
+.source image{width: 162rpx;height: 162rpx;}
+/*基因合成  */
+.blend text{display: block;}
+.blend  image{width: 162rpx;height: 162rpx;}
