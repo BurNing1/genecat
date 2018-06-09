@@ -1,7 +1,11 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/catFirst/catFirst",
+    "pages/catItem/catItem",
+    "pages/storyDetail/storyDetail",
+    "pages/othersPage/othersPage",
+    "pages/geneGain/geneGain",
+    "pages/geneCenter/geneCenter",
     "pages/catFirstMore/catFirstMore",
     "pages/catStoryMore/catStoryMore",
     "pages/trade/trade",

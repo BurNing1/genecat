@@ -23,53 +23,37 @@
   </view>
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{catStory.autoplay}}" interval="{{catStory.interval}}" duration="{{catStory.duration}}" circular="{{catStory.circular}}" skip-hidden-item-layout="{{true}}" bindchange='storyDesc'>
-    <block wx:for="{{catStory.list}}" wx:key="">
+    <block wx:for="{{catStoryList}}" wx:key="item.id">
       <swiper-item>
-        <image src="{{item.imgUrls}}" class="slide-image" width="355" height="237"/>
+        <image src="{{item.show_img}}" class="slide-image" width="355" height="237" bindtap="turnToStoryDetail"/>
       </swiper-item>
     </block>
   </swiper>
   <view class="content">
-    <text class="desc">{{catStoryDesc.desc}}</text>
+    <text class="desc">{{catStoryDesc.title}}</text>
     <view class="info">
       <view class="slave">
         <image src="{{catStoryDesc.icon}}"/>
-        <text>@{{catStoryDesc.name}}</text>
+        <text>@{{catStoryDesc.author?catStoryDesc.author.nick_name:''}}</text>
       </view>
       <view class="pageview">
-        <text>{{catStoryDesc.skim}}浏览</text>
-        <text>{{catStoryDesc.reply}}回复</text>
+        <text>{{catStoryDesc.browse}}浏览</text> .
+        <text>{{catStoryDesc.reply_num}}回复</text>
       </view>
     </view>
   </view> 
 </view>
 <!--最新合成-->
-<view class="blend">
-  <view class="title">
-    <text>最新合成</text>
-    <view bindtap='turnToCatFirstMore'>查看更多</view>
-  </view>
-  <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="5">
-    <block>
-      <swiper-item wx:for="{{catComplex.list}}" wx:key="">
-        <image src="{{item.img}}" class="complex-image"/>
-       </swiper-item>
-    </block>
-  </swiper>
-<scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
-  <view style="background: red; width: 200px; height: 100px; display: inline-block" >0</view>
-  <view style="background: green; width: 200px; height: 100px; display: inline-block">1</view>
-  <view style="background: blue; width: 200px; height: 100px; display: inline-block">2</view>
-  <view style="background: yellow; width: 200px; height: 100px; display: inline-block">3</view>
-</scroll-view>
-</view>
+
 <!--初代猫咪-->
 <view class="first">
   <view class="title">
     <text>初代猫咪</text>
-    <view>数量100</view>
+    <view>数量{{catOriginal.allCount}}</view>
   </view>
-  <view class="list">
-    <image class="item" wx:for="{{catFirst.list}}" src='{{item.img}}' bindtap='turnToCatFirst'/>
+  <view class="items">
+    <view class="item" wx:key="item.id" wx:for="{{catOriginal.list}}" bindtap="turnToCatItem">
+        <image class="item-cover" src="{{item.show_img}}"/>
+    </view>
   </view>
 </view>

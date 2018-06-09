@@ -5,14 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    "navigationBarTitleText": "霸气侧漏" 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // var that = this;
+    // that.setData({
+    //   mername: options.mername//options为页面路由过程中传递的参数
+    // })
+    // wx.setNavigationBarTitle({
+    //   title: that.data.mername//页面标题为路由参数
+    // })
   },
 
   /**

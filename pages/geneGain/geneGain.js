@@ -1,11 +1,11 @@
-// pages/catFirst/catFirst.js
+// pages/geneGain/genegGain.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    isShow: [{ id: 0, open: false }, { id: 1, open: false }]
   },
 
   /**
@@ -14,6 +14,27 @@ Page({
   onLoad: function (options) {
   
   },
+  /* 支付钱包展开，收起 */
+  expandDetail: function (e) {
+    var id=e.currentTarget.dataset.id;
+    console.log(id);
+    var list=this.data.isShow;
+    for (var i =0, len = list.length; i < len; ++i){
+      if(list[i].id==id){
+        console.log(id);
+        list[i].open = !list[i].open
+      }else{
+        list[i].open = false
+      }
+    }
+    this.setData({
+      isShow: list
+    });
+  },
+  searchBtn: function (e) {
+    console.log("你点击了弹出键盘")
+  }, 
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

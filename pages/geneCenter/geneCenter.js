@@ -1,4 +1,4 @@
-// pages/catStoryMore/catStoryMore.js
+// pages/geneCenter/geneCenter.js
 Page({
 
   /**

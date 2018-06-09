@@ -1,87 +1,42 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import {
+  getCatStoryList,
+  getCatNewComplex,
+  getCatOriginal
+} from '../../network/protocol.js';
 Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     //猫咪故事
-    catStory:{
-      list:[
-        {
-          imgUrls: "../../images/1.jpg",
-          desc: "小猫1",
-          logo:"",
-          name:"巴拉巴拉",
-          skim: 11,
-          reply: 111
-        },
-        {
-          imgUrls:"../../images/3.jpg",
-          desc: "小猫2",
-          name: "我是me",
-          skim: 22,
-          reply:222
-        },
-        {
-          imgUrls: "../../images/8.jpg",
-          desc: "小猫3",
-          logo: "",
-          name: "独孤吸猫",
-          skim: 33,
-          reply: 333
-        },
-        {
-          imgUrls: "../../images/16.jpg",
-          desc: "小猫4",
-          logo: "",
-          name: "再见",
-          skim: 44,
-          reply: 444
-        }
-      ],
+    catStory: {
       autoplay: true,
       interval: 3000,
       duration: 500,
       circular: true,
       current: 0,
     },
+    catStoryList: [],
     //猫咪故事_作者信息
-    catStoryDesc:{},
+    catStoryDesc: {},
     //最新合成
-    catComplex:{
-      list:[
-        {
-          img: "../../images/c1.png",
-        },
-        {
-          img: "../../images/c2.png",
-        },
-        {
-          img: "../../images/c3.png",
-        },
-        {
-          img: "../../images/c4.png",
-        },
-        {
-          img: "../../images/c5.png",
-        },
-      ],
-      circular: true,
-      current: 2,
+    catComplex: {
+      winWidth: "100%",
+      winHeight: 200,
+      allWidth: "100%",
+      itemWidth: 100,
+      curIndex: 3,
+      x: 100,
     },
     //初代猫咪
-    catFirst:{
-      num:100,
-      list:[
-        { img: "../../images/11.jpg" },
-        { img: "../../images/11.jpg" },
-        { img: "../../images/11.jpg" },
-        { img: "../../images/11.jpg" },
-        { img: "../../images/11.jpg" },
-        { img: "../../images/11.jpg" },
-        { img: "../../images/11.jpg" },
-      ]
+    catComplexList: [],
+    //初代猫咪
+    catOriginal: {
+      page:1,//当前页
+      pageCount:9,//每页请求数
+      allCount: 0,//总量
+      list: []
     }
   },
   //事件处理函数
@@ -91,15 +46,56 @@ Page({
     })
   },
   onLoad: function () {
+    this.getCatStoryList();
+    this.getCatNewComplex();
+    this.getCatOriginal();
     let arrayItem = this.data.catStory.list;
-    this.setData({
-      // 猫咪故事详情
-      catStoryDesc: arrayItem[0]
+  },
+  /*猫咪故事*/
+  getCatStoryList:function(){
+    getCatStoryList({
+      success: res => {
+        this.setData({
+          catStoryList: res,
+          catStoryDesc: res[0]
+        })
+      }
+    });
+  },
+  //获取最近合成
+  getCatNewComplex:function(){
+    getCatNewComplex({
+      success: res => {
+        this.setData({
+          catComplexList: res,
+        })
+      }
+    });
+  },
+  //获取初代猫咪
+  getCatOriginal: function () {
+    let item = this.data.catOriginal;
+    getCatOriginal({
+      data:{
+        page: item.page,
+        count: item.pageCount
+      },
+      success: res => {
+        item.page++;
+        item.allCount = res.count;
+        item.list = res.rows;
+        this.setData({
+          catOriginal: item,
+        })
+      }
+    });
+  },
+  //点击跳转故事详情
+  turnToStoryDetail: function () {
+    wx.navigateTo({
+      url: '../storyDetail/storyDetail',
     })
   },
-  /*
-      猫咪故事
-  */
   //猫咪故事_查看更多
   turnToCatStoryMore:function(e){
     wx.navigateTo({
@@ -108,7 +104,7 @@ Page({
   },
   //猫咪故事_作者信息
   storyDesc:function(e) {
-    let arrayItem = this.data.catStory.list;
+    let arrayItem = this.data.catStoryList;
     let index = e.detail.current;
     this.setData({
       catStoryDesc: arrayItem[index]
@@ -118,22 +114,31 @@ Page({
   /*
       最新和成
   */
-  complexFunc:function(){
-
+  //触摸开始的事件
+  swiperTouchstart: function (e) {
+    console.log('touchstart',e);
+    let startClinetX = e.changedTouches[0].clientX;
+    this.setData({
+      startClinetX: startClinetX, //触摸开始位置；
+      startTimestamp: e.timeStamp, //触摸开始时间；
+    })
+  },
+  //触摸移动中的事件
+  swiperTouchmove: function (e) {
   },
 
   /*
       初代猫咪
   */
   //初代猫咪_查看更多
-  turnToCatFirstMore: function (e) {
+  // turnToCatFirstMore: function (e) {
+  //   wx.navigateTo({
+  //     url: '../catFirstMore/catFirstMore'
+  //   })
+  // },
+  turnToCatItem:function(e){
     wx.navigateTo({
-      url: '../catFirstMore/catFirstMore'
-    })
-  },
-  turnToCatFirst:function(e){
-    wx.navigateTo({
-      url: '../catFirst/catFirst'
+      url: '../catItem/catItem'
     })
   }
 })

@@ -1,5 +1,6 @@
 /**index.wxss**/
 /*搜索框*/
+.title{font-size: 28rpx;color:#574C52;}
 .search{position: relative;}
 .search input{margin: auto; border:1rpx solid #D6D6D6; width: 90%; padding:5px; font-size:30rpx;}
 .search image{position: absolute;right:25rpx;top:4px;}
@@ -8,19 +9,14 @@
 .keyword{width:90%;height:40rpx;margin:auto;overflow: hidden;font-size: 28rpx;}
 .keyword text+text{margin-left: 10rpx;}
 /*猫咪故事*/
-.story swiper{height:237px;}
-.story .slide-image{height:100%;width: 100%;}
-.story .title{display: flex;flex-wrap:row;justify-content:space-between;color:#D4D1D3;}
-.story .info{display: flex;flex-wrap:row;justify-content:space-between;}
-.story .slave image{width: 40rpx;height: 40rpx;background: #eee;}
+
 /*最新合成*/
-.blend .title{display: flex;flex-wrap:row;justify-content:space-between;color:#D4D1D3;}
-.blend .content{position: relative;}
-.blend .content image{width: 180rpx;height: 180rpx;border-radius: 50%;border:1rpx solid #ff5454; }
-.blend swiper swiper-item{width: 25%;height: 25%;} 
-.blend swiper image{width: 180rpx;height: 180rpx;}
+/* .complex{display: flex;flex-wrap: nowrap;}
+.complex{} */
+.complex image{width: 100%;}
 /*初代猫咪*/
-.first .title{display: flex;flex-wrap:row;justify-content:space-between;color:#D4D1D3;}
-.first .banner{width: 100%;}
-.first .list{display: flex;flex-wrap:wrap;}
-.first .list .item{width: 200rpx;height: 200rpx;border-radius:20rpx;margin:10rpx;} 
+.first{padding:0 20rpx;}
+.first .title{display: flex;flex-wrap:row;justify-content:space-between;}
+.first .items{display: flex;flex-wrap:wrap;align-content:center;}
+.first .item{width:220rpx;height:220rpx;margin: 8rpx;} 
+.first image{border-radius:20rpx;width:100%;height: 100%;background-size: 100% 100%；}
