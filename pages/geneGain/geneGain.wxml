@@ -27,7 +27,7 @@
       </view>
       <view class="item-b {{isShow===item.id}}">
         <view class="msg">输入钱包交易密码您将转移 {{catDetail.current_gene_price}}MTH 到 @{{catDetail.master.nick_name}}</view>
-        <input password="true" catchtap="searchBtn" auto-focus="true" focus='ture' placeholder-style="color:#000" placeholder='请输入钱包密码'/>
+        <input password="true" catchtap="searchBtn" bindconfirm="submitWallet" placeholder-style="color:#000" placeholder='请输入钱包密码'/>
       </view>
     </view>
   </view> 

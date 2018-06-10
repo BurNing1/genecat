@@ -50,7 +50,15 @@ Page({
   searchBtn: function (e) {
     console.log("你点击了弹出键盘")
   }, 
-
+  submitWallet: function (e) {
+    console.log(123);
+    wx.showToast({
+      title: '成功',
+      icon: 'success',
+      duration: 1000,
+      mask: true
+    })
+  }, 
 
   /**
    * 生命周期函数--监听页面初次渲染完成

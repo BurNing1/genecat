@@ -64,18 +64,18 @@
   <view class="source">
     <text>基因来源：</text>
     <image src="../../images/1.jpg"/>
-    <image src="../../images/2.jpg"/>
+    <!-- <image src="../../images/2.jpg"/> -->
   </view>
   <!--基因合成 -->
   <view class="blend">
     <text>基因合成：</text>
-    <image src="../../images/1.jpg"/>
+    <!-- <image src="../../images/1.jpg"/>
     <image src="../../images/2.jpg"/>
     <image src="../../images/3.jpg"/>
     <image src="../../images/4.jpg"/>
     <image src="../../images/5.jpg"/>
     <image src="../../images/6.jpg"/>
     <image src="../../images/7.jpg"/>
-    <image src="../../images/8.jpg"/>
+    <image src="../../images/8.jpg"/> -->
   </view>
 </view>
