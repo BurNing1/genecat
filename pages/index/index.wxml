@@ -33,7 +33,7 @@
     <text class="desc">{{catStoryDesc.title}}</text>
     <view class="info">
       <view class="slave">
-        <image src="{{catStoryDesc.icon}}"/>
+        <image src="{{catStoryDesc.author.avatar}}"/>
         <text>@{{catStoryDesc.author?catStoryDesc.author.nick_name:''}}</text>
       </view>
       <view class="pageview">
@@ -52,7 +52,7 @@
     <view>数量{{catOriginal.allCount}}</view>
   </view>
   <view class="items">
-    <view class="item" wx:key="item.id" wx:for="{{catOriginal.list}}" bindtap="turnToCatItem">
+    <view class="item" wx:key="item.id" wx:for="{{catOriginal.list}}" bindtap="turnToCatItem" data-id="{{item.id}}">
         <image class="item-cover" src="{{item.show_img}}"/>
     </view>
   </view>

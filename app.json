@@ -4,13 +4,14 @@
     "pages/catItem/catItem",
     "pages/storyDetail/storyDetail",
     "pages/othersPage/othersPage",
-    "pages/geneGain/geneGain",
     "pages/geneCenter/geneCenter",
+    "pages/geneGain/geneGain",
     "pages/catFirstMore/catFirstMore",
     "pages/catStoryMore/catStoryMore",
     "pages/trade/trade",
     "pages/me/me",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/login/login"
   ],
   "window":{
     "backgroundTextStyle":"light",

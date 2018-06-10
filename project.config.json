@@ -36,43 +36,43 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "初代猫单页",
 					"pathName": "pages/catFirst/catFirst",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "me",
 					"pathName": "pages/me/me",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "trade",
 					"pathName": "pages/trade/trade",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "获取基因",
 					"pathName": "pages/geneGain/genegGain",
 					"query": ""
 				},
 				{
-					"id": 5,
+					"id": 4,
 					"name": "别人主页",
 					"pathName": "pages/othersPage/othersPage",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "基因中心",
 					"pathName": "pages/geneCenter/geneCenter",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "storyDetail",
 					"pathName": "pages/storyDetail/storyDetail",
 					"query": ""

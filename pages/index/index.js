@@ -138,7 +138,7 @@ Page({
   // },
   turnToCatItem:function(e){
     wx.navigateTo({
-      url: '../catItem/catItem'
+      url: '../catItem/catItem?id=' + e.currentTarget.dataset.id
     })
   }
 })

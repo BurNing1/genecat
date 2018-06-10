@@ -1,34 +1,50 @@
 // pages/geneGain/genegGain.js
+import { getCatDetail, getMyWallet} from '../../network/protocol.js';
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    isShow: [{ id: 0, open: false }, { id: 1, open: false }]
+    catDetail:{},
+    walletList:[],
+    isShow: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function (options={}) {
+    let id = options.id;
+    if (id) {
+      getCatDetail({
+        data: {
+          id: id
+        },
+        success: res => {
+          this.setData({
+            catDetail: res,
+          });
+        }
+      });
+      getMyWallet({
+        data:{
+          id: app.globalData.openid,
+        },
+        success: res => {
+          this.setData({
+            walletList: res,
+          });
+        }
+      })
+    }
   },
   /* 支付钱包展开，收起 */
   expandDetail: function (e) {
     var id=e.currentTarget.dataset.id;
-    console.log(id);
-    var list=this.data.isShow;
-    for (var i =0, len = list.length; i < len; ++i){
-      if(list[i].id==id){
-        console.log(id);
-        list[i].open = !list[i].open
-      }else{
-        list[i].open = false
-      }
-    }
+    if (id === this.data.isShow) id = "";
     this.setData({
-      isShow: list
+      isShow: id
     });
   },
   searchBtn: function (e) {

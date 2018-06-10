@@ -1,4 +1,5 @@
 // pages/trade/trade.js
+const app = getApp()
 Page({
 
   /**
@@ -32,10 +33,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (!app.globalData.userInfo){
+      wx.redirectTo({
+        url: '../login/login?path=trade'
+      })
+    }
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res.windowHeight);
         that.setData({
           winWidth: res.windowWidth,
           winHeight: res.windowHeight

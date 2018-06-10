@@ -2,47 +2,33 @@
 <view class="container">
   <view class="geneCatItems">
     <view class="item">
-      <image class="logo">logo</image>
+      <image class="logo" src="{{catDetail.show_img}}"></image>
       <view class="info">
-        <view>XXXXX<image class="gender">logo</image></view>
-        <view class="identifier">23384732947</view>
+        <view>{{catDetail.name}}<image class="gender">logo</image></view>
+        <view class="identifier">{{catDetail.id}}</view>
       </view>
-      <view class="mth">98 MTH</view>
+      <view class="mth">{{catDetail.current_price}} MTH</view>
     </view>
   </view> 
   <view class="value">
     <view class="_title">基因价值</view>
-    <view class="mth">9.8 MTH</view>
+    <view class="mth">{{catDetail.current_gene_price}} MTH</view>
   </view>
   <view class="wallet">
     <view class="_title">选择钱包支付</view>
-    <view class="item" data-id="0" catchtap='expandDetail'>
+    <view class="item" wx:for="{{walletList}}" data-id="{{item.id}}" wx:key="item.id" catchtap='expandDetail'>
       <view class="item-a">
         <image class="logo"/>
         <view>
-          <view class="mth">785.0000 MTH</view>
-          <view class="identifier">su347839dhehuihfjkr</view>
+          <view class="mth">{{item.balance}} MTH</view>
+          <view class="identifier">{{item.id}}</view>
         </view>
-        <view class="tip">买基因用</view>
+        <view class="tip">{{item.name}}</view>
       </view>
-      <view class="item-b {{isShow[0].open}}">
-        <view class="msg">输入钱包交易密码您将转移 9.8MTH 到 @frank</view>
+      <view class="item-b {{isShow===item.id}}">
+        <view class="msg">输入钱包交易密码您将转移 {{catDetail.current_gene_price}}MTH 到 @{{catDetail.master.nick_name}}</view>
         <input password="true" catchtap="searchBtn" auto-focus="true" focus='ture' placeholder-style="color:#000" placeholder='请输入钱包密码'/>
-      </view>  
-    </view>
-    <view class="item" data-id="1" catchtap='expandDetail'>
-      <view class="item-a">
-        <image class="logo"/>
-        <view>
-          <view class="mth">35.0000 MTH</view>
-          <view class="identifier">su34783ehuihfjkr</view>
-        </view>
-        <view class="tip">卖基因用</view>
-      </view> 
-      <view class="item-b  {{isShow[1].open}}">
-        <view class="msg">输入钱包交易密码您将转移 9.8MTH 到 @frank</view>
-        <input password="true" catchtap="searchBtn" auto-focus="true"  focus='ture' placeholder-style="color:#000" placeholder='请输入钱包密码'/>
-      </view>  
+      </view>
     </view>
   </view> 
 </view>
