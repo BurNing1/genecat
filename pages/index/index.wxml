@@ -44,7 +44,12 @@
   </view> 
 </view>
 <!--最新合成-->
-
+<view class="complex">
+  <!-- <image wx:for="{{catComplexList}}"> -->
+  <view class="item" wx:for="{{catComplexList}}" wx:key="item">
+    <image class="c{{index+1}}" src="{{item.show_img}}" />
+  </view>
+</view>
 <!--初代猫咪-->
 <view class="first">
   <view class="title">
@@ -52,7 +57,7 @@
     <view>数量{{catOriginal.allCount}}</view>
   </view>
   <view class="items">
-    <view class="item" wx:key="item.id" wx:for="{{catOriginal.list}}" bindtap="turnToCatItem" data-id="{{item.id}}">
+    <view class="item" wx:key="item.id" wx:for="{{catOriginal.list}}" bindtap="turnToCatDetail" data-id="{{item.id}}">
         <image class="item-cover" src="{{item.show_img}}"/>
     </view>
   </view>

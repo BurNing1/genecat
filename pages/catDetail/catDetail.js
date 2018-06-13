@@ -30,13 +30,17 @@ Page({
         },
         success:res=>{
           let artList = res.articleList||[];
+          let catName = res.name;
+          wx.setNavigationBarTitle({
+            title: catName,
+          })
           delete res.articleList
           this.setData({
             catDetail:res,
             catStoryList:artList
           });
         }
-      })
+      });
     }
   },
   //点击跳转故事详情

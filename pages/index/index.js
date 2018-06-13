@@ -37,7 +37,8 @@ Page({
       pageCount:9,//每页请求数
       allCount: 0,//总量
       list: []
-    }
+    },
+    catOriginalList:[],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -66,6 +67,7 @@ Page({
   getCatNewComplex:function(){
     getCatNewComplex({
       success: res => {
+        console.log(res);
         this.setData({
           catComplexList: res,
         })
@@ -136,9 +138,9 @@ Page({
   //     url: '../catFirstMore/catFirstMore'
   //   })
   // },
-  turnToCatItem:function(e){
+  turnToCatDetail:function(e){
     wx.navigateTo({
-      url: '../catItem/catItem?id=' + e.currentTarget.dataset.id
+      url: '../catDetail/catDetail?id=' + e.currentTarget.dataset.id
     })
   }
 })

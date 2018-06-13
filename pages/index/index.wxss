@@ -11,9 +11,15 @@
 /*猫咪故事*/
 
 /*最新合成*/
-/* .complex{display: flex;flex-wrap: nowrap;}
-.complex{} */
-.complex image{width: 100%;}
+.complex{display: flex;flex-wrap: nowrap;position: relative;height:280rpx;} 
+.complex image{width: 180rpx;height:180rpx;border:2rpx solid #ff5454;position: absolute;border-radius: 50%;background: #fff;}
+.complex .c1{left:0;}
+.complex .c2{left:40%;margin-left: -190rpx;}
+.complex .c3{left:50%;margin-left: -90rpx;}
+.complex .c4{right:40%;margin-right: -190rpx;}
+.complex .c5{right:0;}
+.complex .c2,.complex .c4{z-index: 1;}
+.complex .c3{transform: scale(1.5);z-index: 2;}
 /*初代猫咪*/
 .first{padding:0 20rpx;}
 .first .title{display: flex;flex-wrap:row;justify-content:space-between;}

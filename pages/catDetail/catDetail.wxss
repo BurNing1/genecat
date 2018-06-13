@@ -10,14 +10,14 @@
 /*MTH  */
 .mth{display: flex;flex-direction: row;justify-content: space-between;margin-bottom: 52rpx;padding:0 20rpx;}
 .mth .value{font-size:68rpx;}
-.mth .btn-get-gene{font-size:58rpx;height:70rpx;line-height: 70rpx;border:2rpx solid #757575;background: transparent;margin-right:20rpx;margin-top:10rpx;border-radius:20rpx;padding:4rpx;}
+.mth .btn-get-gene{font-size:58rpx;height:70rpx;line-height: 70rpx;border:2rpx solid #757575;background: transparent;margin-right:20rpx;margin-top:10rpx;border-radius:20rpx;padding:0 4rpx;}
 /*猫咪简介  */
 .intro{display: flex;padding:0 20rpx;}
 .intro .cat{width: 464rpx;}
 .intro .cat .title{font-size: 30rpx;display: block;}
 .intro .cat .desc{color:#888;font-size: 28rpx;}
 .intro .host{display: flex;flex-direction: column;margin-left:70rpx;}
-.intro .host .logo{width: 116rpx;height: 116rpx;border-radius: 10rpx;margin-bottom: 10rpx;}
+.intro .host .logo{width: 116rpx;height: 116rpx;border-radius: 10rpx;margin:0 auto 10rpx auto;}
 .intro .host .role{color:#B0B5BD;font-size:30rpx;}
 .intro .host text{text-align: center;}
 /* 猫咪特性 */
